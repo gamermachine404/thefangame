@@ -31,8 +31,6 @@ func _physics_process(delta):
 		#position = endPos
 		schmoove = true
 
-	 
-	peg()
 	targ.x = sin($Pivot.rotation.y) * speed * dir
 	targ.z = cos($Pivot.rotation.y) * speed * dir
 		
@@ -43,6 +41,3 @@ func _physics_process(delta):
 	#velocity = targ
 	move_and_slide()
 
-
-func peg():
-	print("strapon porn")
