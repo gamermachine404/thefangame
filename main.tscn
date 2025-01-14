@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bodtvfstyu3ib"]
+
+[ext_resource type="Script" path="res://script.gd" id="1_5eqea"]
+[ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://unpaid_intern.tscn" id="2_q8sg7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bpnsx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_np5v0"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_5eqea")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, 0, 0)
+mesh = SubResource("BoxMesh_bpnsx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, 0, 0)
+shape = SubResource("BoxShape3D_np5v0")
+
+[node name="UnpaidIntern" parent="." instance=ExtResource("2_q8sg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92308, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5015, 2.01743, -0.0541468)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_bpnsx")
+skeleton = NodePath("../../StaticBody3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_np5v0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9, 0)
