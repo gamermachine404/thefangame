@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ib0pvh5xs6nm"
-path="res://.godot/imported/thing.glb-1c99b303f4f65f9ed69f8e6efae6e0f1.scn"
+uid="uid://tqtf2u4hl05o"
+path="res://.godot/imported/BeeCube.glb-1e6e0c73143610322097a8f301272ab1.scn"
 
 [deps]
 
-source_file="res://thing.glb"
-dest_files=["res://.godot/imported/thing.glb-1c99b303f4f65f9ed69f8e6efae6e0f1.scn"]
+source_file="res://Models/BeeCube.glb"
+dest_files=["res://.godot/imported/BeeCube.glb-1e6e0c73143610322097a8f301272ab1.scn"]
 
 [params]
 
