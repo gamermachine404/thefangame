@@ -73,6 +73,14 @@ func _physics_process(delta):
 			endPos.x = (-cos(rotAmount) * tilesize * rot) + position.x
 			endPos.z = (sin(rotAmount) * tilesize * rot) + position.z
 		schmoove = (endPos - position)*speed
+
+		var space_state = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(position, endPos)
+		query.collide_with_areas = true
+		var result = space_state.intersect_ray(query)
+
+		if result.has("collider"):
+			endPos = position
 		#Using the rotAmount (the general direction), determines which coordinates to change, and makes that the endPos
 		#Makes schmoove's value a vector FROM position TO endPos, and multiplies that by speed. We will use this vector to have smooth movement.
 
