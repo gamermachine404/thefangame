@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://yh4s1woljabt"]
+
+[ext_resource type="Script" path="res://Assets/main_menu.gd" id="1_bpkjm"]
+[ext_resource type="Texture2D" uid="uid://clvli223vjd1" path="res://Images/BigScary.png" id="2_67rc3"]
+[ext_resource type="Texture2D" uid="uid://dme23ob56rsay" path="res://Images/TheGame.png" id="3_0mm0r"]
+[ext_resource type="Script" path="res://Assets/generic_control.gd" id="4_q6s64"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpkjm")
+
+[node name="RightStuff" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment_horizontal = 2
+alignment_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="RightStuff"]
+layout_mode = 2
+texture = ExtResource("2_67rc3")
+
+[node name="LeftStuff" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.272569
+anchor_bottom = 1.0
+grow_vertical = 2
+alignment_horizontal = 0
+alignment_vertical = 0
+script = ExtResource("4_q6s64")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftStuff"]
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("4_q6s64")
+
+[node name="Label" type="Label" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "You just lost"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_0mm0r")
+expand_mode = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="LeftStuff/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 4
+border_width = 0.0
+
+[node name="Play" type="Button" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+text = "Play
+"
+script = ExtResource("4_q6s64")
+
+[node name="Options" type="Button" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+script = ExtResource("4_q6s64")
+
+[node name="Credits" type="Button" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+script = ExtResource("4_q6s64")
+
+[node name="Quit" type="Button" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_q6s64")
+
+[node name="Loading" type="AspectRatioContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ARandomLabel" type="Label" parent="Loading"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Loading..."

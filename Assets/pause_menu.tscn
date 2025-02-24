@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://diumbgkret5kd"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 644.0
+color = Color(0.458405, 0.458405, 0.458405, 0.411765)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 280.0
+offset_right = 502.0
+offset_bottom = 303.0
+scale = Vector2(2.6, 2.6)
+text = "Pretend the game is paused"

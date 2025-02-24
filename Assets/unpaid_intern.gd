@@ -15,14 +15,14 @@ var rotAmount
 
 func _ready() -> void:
 	endPos = position
-	stealMouse()
+	#stealMouse()
 
 func stealMouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#removes the mouse from existence to make player able to look around
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$Pivot.rotate_y(-event.relative.x * sens)
 		$Pivot/Camera3D.rotate_x(event.relative.y * sens)
 		$Pivot/Camera3D.rotation.x = clamp($Pivot/Camera3D.rotation.x, deg_to_rad(-40), deg_to_rad(60))

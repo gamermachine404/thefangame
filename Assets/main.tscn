@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=6 format=3 uid="uid://bodtvfstyu3ib"]
 
-[ext_resource type="Script" path="res://Assets/script.gd" id="1_5eqea"]
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
 [ext_resource type="Script" path="res://Assets/Door.gd" id="4_usfiq"]
@@ -10,7 +9,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykplv"]
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_5eqea")
 
 [node name="UnpaidIntern" parent="." instance=ExtResource("2_q8sg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.923, -2.5)
