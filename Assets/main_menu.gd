@@ -25,7 +25,7 @@ func start():
 	#the program waits 3 seconds, because I said so.
 	await get_tree().create_timer(0.017).timeout
 	stage = load("res://Assets/main.tscn").instantiate()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(0).timeout
 	
 	self.get_parent().add_child(stage)
 	stealMouse()

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+const position_node = preload("res://Assets/position_node.gd")
+
 @export var speed = 10
 @export var grav = 75
 @export var tilesize = 5 #Determines the size of a tile moved in one movement
@@ -10,11 +12,17 @@ var endPos = Vector3.ZERO
 var schmoove = Vector3.ZERO
 var sens = 0.01 #Mouse sensitivity
 
+var testArray = [1,2,3,4]
+
+var chosenNode:position_node
+
 var travelTo = Vector3.ZERO
 var rotAmount
+var selectedNode:int = 0
 
 func _ready() -> void:
 	endPos = position
+	chosenNode = self.get_parent().find_child("PositionNodes").find_child("1")
 	#stealMouse()
 
 func stealMouse() -> void:
@@ -29,11 +37,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		#Rotate the body of the player in y and camera in x in function of x y movement of mouse.
 		#Use clamp function to make sure the camera's X rotation value stays within a set range to prevent it from flipping over/under
 
-func _physics_process(delta):
+func _process(delta):
 	#print("sine")
 	#print(sin($Pivot.rotation.y))
 	#print("cosine")
 	#print(cos($Pivot.rotation.y))
+
+	if Input.is_action_just_pressed("SelectNodeUp"):
+		if selectedNode != chosenNode.CN.size()-1:
+			selectedNode = selectedNode + 1
+	if Input.is_action_just_pressed("SelectNodeDown"):
+		if selectedNode != 0:
+			selectedNode = selectedNode - 1
+	if Input.is_action_just_pressed("NodeGo"):
+		chosenNode = chosenNode.CN[selectedNode]
+		selectedNode = 0
+		position = chosenNode.get_position()
+		pass
+		
 
 	var sine = sin($Pivot.rotation.y)
 	var cosine = cos($Pivot.rotation.y)

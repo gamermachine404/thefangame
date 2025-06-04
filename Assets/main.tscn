@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=7 format=3 uid="uid://bodtvfstyu3ib"]
 
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
+[ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
 [ext_resource type="Script" path="res://Assets/Door.gd" id="4_usfiq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0a18e"]
@@ -34,3 +35,25 @@ script = ExtResource("4_usfiq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D"]
 transform = Transform3D(4.79, 0, 0, 0, 5.92, 0, 0, 0, 0.798, 0, 0, 0)
 shape = SubResource("BoxShape3D_ykplv")
+
+[node name="PositionNodes" type="Node3D" parent="."]
+
+[node name="1" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 6)
+Connected = Array[String](["3"])
+
+[node name="2" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 4, 53)
+Connected = Array[String](["3"])
+
+[node name="3" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 53)
+Connected = Array[String](["1", "2", "4", "5"])
+
+[node name="4" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, 53)
+Connected = Array[String](["3"])
+
+[node name="5" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 82)
+Connected = Array[String](["3"])

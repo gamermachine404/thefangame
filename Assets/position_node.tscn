@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://boap27go7kty7"]
+
+[ext_resource type="Script" path="res://Assets/position_node.gd" id="1_jt87h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvbd5"]
+
+[node name="PositionNode" type="Node3D"]
+script = ExtResource("1_jt87h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kvbd5")
