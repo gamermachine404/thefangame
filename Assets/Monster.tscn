@@ -1,13 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjdk1j8ynygh4"]
-
-[ext_resource type="Script" uid="uid://danaypsu2hgr4" path="res://Assets/unpaid_intern.gd" id="1_jfvb4"]
+[gd_scene load_steps=3 format=3 uid="uid://cdpdfuk5ehb8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvtkc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqqsx"]
 
 [node name="UnpaidIntern" type="CharacterBody3D"]
-script = ExtResource("1_jfvb4")
 
 [node name="HitBox" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hvtkc")
@@ -16,6 +13,3 @@ shape = SubResource("CapsuleShape3D_hvtkc")
 
 [node name="Bean" type="MeshInstance3D" parent="Pivot"]
 mesh = SubResource("CapsuleMesh_kqqsx")
-
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.431, 0.168758)

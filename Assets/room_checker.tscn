@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://byv5as55otsm7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5baqv"]
+size = Vector3(0.0147247, 0.889377, 0.517971)
+
+[node name="RoomChecker" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000840545, 0.00250542, -0.000267506)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152696, 0)
+shape = SubResource("BoxShape3D_5baqv")
+debug_color = Color(3.85046e-06, 0.601621, 0.690562, 0.42)

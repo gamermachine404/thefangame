@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=9 format=3 uid="uid://bodtvfstyu3ib"]
 
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
 [ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
-[ext_resource type="Script" path="res://Assets/Door.gd" id="4_usfiq"]
+[ext_resource type="Script" uid="uid://2uykou5spvj2" path="res://Assets/Door.gd" id="4_usfiq"]
+[ext_resource type="PackedScene" uid="uid://byv5as55otsm7" path="res://Assets/room_checker.tscn" id="5_2jwo7"]
+[ext_resource type="Script" uid="uid://xk81jqi31qb0" path="res://Assets/room_checker.gd" id="6_gco83"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0a18e"]
 
@@ -57,3 +59,9 @@ Connected = Array[String](["3"])
 [node name="5" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 82)
 Connected = Array[String](["3"])
+
+[node name="RoomCheckers" type="Node3D" parent="."]
+
+[node name="RoomChecker" parent="RoomCheckers" instance=ExtResource("5_2jwo7")]
+transform = Transform3D(80.7429, 0, 0, 0, 25.4224, 0, 0, 0, 80.7429, -2.82882, 0.332598, 38.4257)
+script = ExtResource("6_gco83")

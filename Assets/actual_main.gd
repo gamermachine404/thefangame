@@ -9,4 +9,3 @@ func relay(msg):
 			get_tree().quit()
 		_:
 			print(msg)
-		
