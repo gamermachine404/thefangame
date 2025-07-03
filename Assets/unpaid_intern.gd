@@ -11,6 +11,10 @@ var rot = 0
 var endPos = Vector3.ZERO
 var schmoove = Vector3.ZERO
 var sens = 0.01 #Mouse sensitivity
+var movementallowed = true
+var lookaroundallowed = true
+
+var camera
 
 var testArray = [1,2,3,4]
 
@@ -23,6 +27,7 @@ var selectedNode:int = 0
 func _ready() -> void:
 	endPos = position
 	chosenNode = self.get_parent().find_child("PositionNodes").find_child("1")
+	camera = $Pivot/Camera3D
 	#stealMouse()
 
 func stealMouse() -> void:
@@ -30,7 +35,7 @@ func stealMouse() -> void:
 	#removes the mouse from existence to make player able to look around
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if lookaroundallowed and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$Pivot.rotate_y(-event.relative.x * sens)
 		$Pivot/Camera3D.rotate_x(event.relative.y * sens)
 		$Pivot/Camera3D.rotation.x = clamp($Pivot/Camera3D.rotation.x, deg_to_rad(-40), deg_to_rad(60))
@@ -62,7 +67,7 @@ func _process(delta):
 	rot = 0
 	dir = 0
 
-	if endPos == position:
+	if endPos == position and movementallowed:
 
 		if Input.is_action_just_pressed("MoveToTheForwards"):
 			dir = 1

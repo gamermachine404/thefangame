@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds3mu4540h2l6"]
+
+[ext_resource type="Script" uid="uid://cexkqf5bhc2h5" path="res://Assets/camera.gd" id="1_lfopi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1akh0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5kg4"]
+albedo_color = Color(0.33, 0.33, 0.33, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_lfopi")
+
+[node name="Brick" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0, 0)
+mesh = SubResource("BoxMesh_1akh0")
+surface_material_override/0 = SubResource("StandardMaterial3D_u5kg4")
+
+[node name="Camera3D" type="Camera3D" parent="Brick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)

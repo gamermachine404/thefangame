@@ -1,20 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=10 format=3 uid="uid://bodtvfstyu3ib"]
 
+[ext_resource type="Script" uid="uid://bgvjcj8deeo76" path="res://Assets/test_map.gd" id="1_2jwo7"]
+[ext_resource type="PackedScene" uid="uid://ds3mu4540h2l6" path="res://Assets/camera.tscn" id="2_gco83"]
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
 [ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
-[ext_resource type="Script" uid="uid://2uykou5spvj2" path="res://Assets/Door.gd" id="4_usfiq"]
-[ext_resource type="PackedScene" uid="uid://byv5as55otsm7" path="res://Assets/room_checker.tscn" id="5_2jwo7"]
-[ext_resource type="Script" uid="uid://xk81jqi31qb0" path="res://Assets/room_checker.gd" id="6_gco83"]
+[ext_resource type="Script" uid="uid://dqn721ivmjyqr" path="res://Assets/Door.gd" id="4_usfiq"]
+[ext_resource type="PackedScene" uid="uid://dsh2fkcjii2kk" path="res://Assets/Clock.tscn" id="7_gco83"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0a18e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykplv"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_2jwo7")
 
 [node name="UnpaidIntern" parent="." instance=ExtResource("2_q8sg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.923, -2.5)
+
+[node name="Cam1" parent="." groups=["Cams"] instance=ExtResource("2_gco83")]
+transform = Transform3D(-0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, 0.353553, -0.612372, 3, 6, -3)
+
+[node name="Cam2" parent="." groups=["Cams"] instance=ExtResource("2_gco83")]
+transform = Transform3D(-4.2222e-08, -0.258819, 0.965926, -1.13133e-08, 0.965926, 0.258819, -1, 0, -4.37114e-08, 23, 6, 52)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 15, -5)
@@ -62,6 +70,32 @@ Connected = Array[String](["3"])
 
 [node name="RoomCheckers" type="Node3D" parent="."]
 
-[node name="RoomChecker" parent="RoomCheckers" instance=ExtResource("5_2jwo7")]
-transform = Transform3D(80.7429, 0, 0, 0, 25.4224, 0, 0, 0, 80.7429, -2.82882, 0.332598, 38.4257)
-script = ExtResource("6_gco83")
+[node name="Clock" parent="." instance=ExtResource("7_gco83")]
+
+[node name="Monitor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cam1" type="Button" parent="Monitor"]
+z_index = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 488.0
+offset_right = 224.0
+offset_bottom = 553.0
+text = "1"
+
+[node name="Cam2" type="Button" parent="Monitor"]
+z_index = 1
+layout_mode = 0
+offset_left = 34.0
+offset_top = 241.0
+offset_right = 98.0
+offset_bottom = 306.0
+text = "2"
+
+[node name="Line2D" type="Line2D" parent="Monitor"]
+position = Vector2(-331, -32)
+points = PackedVector2Array(484, 350, 483, 595, 588, 603, 580, 347, 680, 340, 668, 222, 577, 225, 572, 126, 681, 131, 681, 73, 371, 65, 370, 110, 469, 119, 468, 213, 363, 213, 359, 343, 484, 350)

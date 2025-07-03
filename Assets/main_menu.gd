@@ -8,6 +8,7 @@ func _ready():
 func stealMouse() -> void:
 	#Function to set the mouse to captured (first person view, essentially)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Moved mouse capture codes to maps themselves
 	
 func start():
 	
@@ -28,7 +29,7 @@ func start():
 	await get_tree().create_timer(0).timeout
 	
 	self.get_parent().add_child(stage)
-	stealMouse()
+	#stealMouse()
 	$Loading.visible = false
 	self.visible = false
 	
