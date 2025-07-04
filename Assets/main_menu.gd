@@ -46,10 +46,17 @@ func getProTips() -> Array[String]:
 	
 	return tips
 	
+func blackJack():
+	var blackjack = load("res://Assets/BlackJack.tscn").instantiate()
+	self.get_parent().add_child(blackjack)
+	self.visible = false
+	
 func relay(msg):
 	match msg:
 		"Play":
 			start()
+		"BlackJack":
+			blackJack()
 		_:
 			self.get_parent().relay(msg)
 	

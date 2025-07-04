@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4w3fq02rfaaw"]
+
+[ext_resource type="Script" uid="uid://cn36iry4qf7tr" path="res://Assets/black_jack.gd" id="1_5lb70"]
+[ext_resource type="Script" uid="uid://ddb3h26ychpcx" path="res://Assets/blackjack_button.gd" id="1_mrrmw"]
+[ext_resource type="Texture2D" uid="uid://bs0mhqfm7kmqm" path="res://Images/areusrs.jpg" id="2_w8qqw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5lb70"]
+font_color = Color(0, 1, 0.0833333, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8qqw"]
+font_size = 56
+font_color = Color(0, 1, 0.116667, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5lb70")
+
+[node name="SysNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 573.0
+offset_right = 121.0
+offset_bottom = 596.0
+text = "Number"
+label_settings = SubResource("LabelSettings_5lb70")
+
+[node name="PlaNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 502.0
+offset_right = 120.0
+offset_bottom = 525.0
+text = "Number"
+label_settings = SubResource("LabelSettings_5lb70")
+
+[node name="Areusrs" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(577, 326.125)
+scale = Vector2(5.76884, 2.55237)
+texture = ExtResource("2_w8qqw")
+
+[node name="Switches" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 457.0
+offset_right = 536.0
+offset_bottom = 479.0
+scale = Vector2(7, 7)
+columns = 5
+
+[node name="1" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="2" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="3" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="4" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="5" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="6" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="7" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="8" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="9" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="10" type="Button" parent="Switches"]
+layout_mode = 2
+disabled = true
+script = ExtResource("1_mrrmw")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 380.0
+offset_right = 131.0
+offset_bottom = 462.0
+text = "Start"
+
+[node name="GreatJob" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 248.0
+offset_top = 159.0
+offset_right = 969.0
+offset_bottom = 459.0
+text = "Great Job!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+label_settings = SubResource("LabelSettings_w8qqw")

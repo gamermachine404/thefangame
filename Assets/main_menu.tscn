@@ -85,6 +85,11 @@ layout_mode = 2
 text = "Quit"
 script = ExtResource("4_q6s64")
 
+[node name="BlackJack" type="Button" parent="LeftStuff/VBoxContainer"]
+layout_mode = 2
+text = "BlackJack"
+script = ExtResource("4_q6s64")
+
 [node name="Loading" type="AspectRatioContainer" parent="."]
 visible = false
 layout_mode = 1
