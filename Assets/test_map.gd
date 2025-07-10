@@ -4,12 +4,14 @@ var state = 0
 var player
 var monitor
 var clock
+var iicon
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player = $UnpaidIntern
 	monitor = $Monitor
 	clock = $Clock
+	iicon = $InteractIcon
 	
 	clock.visible = false
 	monitor.visible = false
@@ -31,6 +33,6 @@ func _process(delta):
 			player.movementallowed = true
 			clock.visible = false
 			monitor.visible = false
-			player.camera.current = true
+			player.camera.make_current()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			state = 0

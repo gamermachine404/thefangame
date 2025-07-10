@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://q2d44ppeseyv"]
+
+[ext_resource type="Script" uid="uid://buvtjuw4sj0tf" path="res://Assets/power_box.gd" id="1_855xq"]
+[ext_resource type="Texture2D" uid="uid://bggx4p0xns6hf" path="res://Images/ScuffedPowerSymbol2.png" id="1_vhvqs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ci5xt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umfd0"]
+albedo_color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_855xq")
+interactensity = 0.34
+interactrange = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ci5xt")
+surface_material_override/0 = SubResource("StandardMaterial3D_umfd0")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, 0.507377, 1.49012e-08, 0.00288397)
+texture = ExtResource("1_vhvqs")

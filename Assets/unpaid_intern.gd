@@ -23,6 +23,7 @@ var chosenNode:position_node
 var travelTo = Vector3.ZERO
 var rotAmount
 var selectedNode:int = 0
+var theNormal
 
 func _ready() -> void:
 	endPos = position
@@ -41,6 +42,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Pivot/Camera3D.rotation.x = clamp($Pivot/Camera3D.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		#Rotate the body of the player in y and camera in x in function of x y movement of mouse.
 		#Use clamp function to make sure the camera's X rotation value stays within a set range to prevent it from flipping over/under
+
+func getLookingVector() -> Vector3:
+	return $Pivot/Camera3D.global_position.direction_to($Pivot/Camera3D/PosMarker.global_position)
 
 func _process(delta):
 	#print("sine")
@@ -112,7 +116,7 @@ func _process(delta):
 
 	if endPos != position:
 		var diff = endPos - position
-		print(abs(diff.length()))
+		#print(abs(diff.length()))
 		if abs(diff.length()) < (schmoove*delta).length():
 			position = endPos
 			#This section checks if the vector FROM current position TO endPos is smaller than schmoove, in which case it will directly set the player's position to that endPos

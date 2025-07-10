@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=12 format=3 uid="uid://bodtvfstyu3ib"]
 
 [ext_resource type="Script" uid="uid://bgvjcj8deeo76" path="res://Assets/test_map.gd" id="1_2jwo7"]
 [ext_resource type="PackedScene" uid="uid://ds3mu4540h2l6" path="res://Assets/camera.tscn" id="2_gco83"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
 [ext_resource type="Script" uid="uid://dqn721ivmjyqr" path="res://Assets/Door.gd" id="4_usfiq"]
 [ext_resource type="PackedScene" uid="uid://dsh2fkcjii2kk" path="res://Assets/Clock.tscn" id="7_gco83"]
+[ext_resource type="PackedScene" uid="uid://q2d44ppeseyv" path="res://Assets/PowerBox.tscn" id="8_y8f0h"]
+[ext_resource type="Texture2D" uid="uid://i8hotq1mf01j" path="res://Images/LongFingers.png" id="9_8s3iw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0a18e"]
 
@@ -73,6 +75,7 @@ Connected = Array[String](["3"])
 [node name="Clock" parent="." instance=ExtResource("7_gco83")]
 
 [node name="Monitor" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -99,3 +102,37 @@ text = "2"
 [node name="Line2D" type="Line2D" parent="Monitor"]
 position = Vector2(-331, -32)
 points = PackedVector2Array(484, 350, 483, 595, 588, 603, 580, 347, 680, 340, 668, 222, 577, 225, 572, 126, 681, 131, 681, 73, 371, 65, 370, 110, 469, 119, 468, 213, 363, 213, 359, 343, 484, 350)
+
+[node name="Node3D" parent="." instance=ExtResource("8_y8f0h")]
+transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 4.7, 1.89975, 7.62055)
+
+[node name="InteractIcon3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InteractIcon3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.391
+anchor_top = 0.307
+anchor_right = 0.391
+anchor_bottom = 0.307
+offset_left = -9.43204
+offset_top = -26.936
+offset_right = 490.568
+offset_bottom = 473.064
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_8s3iw")
+
+[node name="InteractIcon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(595, 305)
+texture = ExtResource("9_8s3iw")

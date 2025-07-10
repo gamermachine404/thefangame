@@ -25,6 +25,9 @@ mesh = SubResource("CapsuleMesh_kqqsx")
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.431, 0.168758)
 
+[node name="PosMarker" type="Node3D" parent="Pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.74228e-08, 0, -1)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(0.88, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0.4, 0.3)
 mesh = SubResource("BoxMesh_3r5l5")

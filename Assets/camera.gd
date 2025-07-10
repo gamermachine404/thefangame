@@ -5,4 +5,4 @@ func _ready():
 	cam = $Brick/Camera3D
 
 func activate():
-	cam.current = true
+	cam.make_current()
