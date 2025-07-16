@@ -1,13 +1,17 @@
 extends Node3D
 
+const test_map = preload("res://Assets/test_map.gd")
+
 @export var interactensity:float
 @export var interactrange:float
 var active = false
 var player
 var iicon
+var map:test_map
 
 func _ready():
 	get_parent().ready.connect(actualReady)
+	map = get_parent()
 	#Look, I tried using an area3d, I really did. I tried using mouse_entered and mouse_exited.
 	#But it just wouldnt frickin work. So now Im gonna do unspeakable things. -C
 	
@@ -20,11 +24,12 @@ func _ready():
 func _process(delta):
 	var angl = $MeshInstance3D/Sprite3D.global_position.direction_to(self.global_position).dot(player.getLookingVector()/player.global_position.distance_to(self.global_position))
 	if interactensity < angl:
-		active = true
-		iicon.visible=true
+		if not active:
+			active = true
+			map.toggleIcon(true)
 	elif active:
 		active = false
-		iicon.visible=false
+		map.toggleIcon(false)
 	#This piece of code is an absolute atrocity and there's probably a thousand ways to make it better.
 	#But anyways, basically this piece of code makes a vector of where the player is looking,
 	#and scales that vector inversely proportionally to the distance between the player and the box.
@@ -38,5 +43,10 @@ func _process(delta):
 	#interactible is. Like I said, there's probably a thousand ways of making this better.
 	
 func actualReady():
-	player = get_parent().player
-	iicon = get_parent().iicon
+	player = map.player
+	iicon = map.iicon
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if active and Input.is_action_just_pressed("Interact"):
+		map.interacted(self.name)
+			

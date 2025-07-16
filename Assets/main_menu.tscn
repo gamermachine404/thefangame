@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://beitowsa850mt" path="res://Assets/main_menu.gd" id="1_bpkjm"]
 [ext_resource type="Texture2D" uid="uid://clvli223vjd1" path="res://Images/BigScary.png" id="2_67rc3"]
 [ext_resource type="Texture2D" uid="uid://dme23ob56rsay" path="res://Images/TheGame.png" id="3_0mm0r"]
-[ext_resource type="Script" uid="uid://dnectwxtfjrcg" path="res://Assets/generic_control.gd" id="4_q6s64"]
+[ext_resource type="Script" uid="uid://cw8mksdxaoi6f" path="res://Assets/generic_control.gd" id="4_q6s64"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
 [ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
-[ext_resource type="Script" uid="uid://dqn721ivmjyqr" path="res://Assets/Door.gd" id="4_usfiq"]
+[ext_resource type="Script" uid="uid://2uykou5spvj2" path="res://Assets/Door.gd" id="4_usfiq"]
 [ext_resource type="PackedScene" uid="uid://dsh2fkcjii2kk" path="res://Assets/Clock.tscn" id="7_gco83"]
 [ext_resource type="PackedScene" uid="uid://q2d44ppeseyv" path="res://Assets/PowerBox.tscn" id="8_y8f0h"]
 [ext_resource type="Texture2D" uid="uid://i8hotq1mf01j" path="res://Images/LongFingers.png" id="9_8s3iw"]

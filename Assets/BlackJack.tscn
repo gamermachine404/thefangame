@@ -123,3 +123,10 @@ text = "Great Job!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 label_settings = SubResource("LabelSettings_w8qqw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 646.0
+color = Color(0.1804, 0.44, 0.29722, 1)

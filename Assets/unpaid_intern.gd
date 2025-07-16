@@ -38,8 +38,9 @@ func stealMouse() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if lookaroundallowed and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$Pivot.rotate_y(-event.relative.x * sens)
-		$Pivot/Camera3D.rotate_x(event.relative.y * sens)
-		$Pivot/Camera3D.rotation.x = clamp($Pivot/Camera3D.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		#$Pivot/Camera3D.rotate_x(event.relative.y * sens)
+		$Pivot/Camera3D.rotation.x = clamp($Pivot/Camera3D.rotation.x - event.relative.y * sens, deg_to_rad(-40), deg_to_rad(60))
+		print(var_to_str(rad_to_deg($Pivot/Camera3D.rotation.x)))
 		#Rotate the body of the player in y and camera in x in function of x y movement of mouse.
 		#Use clamp function to make sure the camera's X rotation value stays within a set range to prevent it from flipping over/under
 
