@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-const position_node = preload("res://Assets/position_node.gd")
+const position_node = preload("res://Scripts/position_node.gd")
 
 @export var speed = 10
 @export var grav = 75
-@export var tilesize = 5 #Determines the size of a tile moved in one movement
+@export var tilesize = 5.0 #Determines the size of a tile moved in one movement
 #var targ = Vector3.ZERO
 var dir = 0 #Used to determine if player is moving backwards/forwards
 var rot = 0
@@ -27,7 +27,7 @@ var theNormal
 
 func _ready() -> void:
 	endPos = position
-	chosenNode = self.get_parent().find_child("PositionNodes").find_child("1")
+	chosenNode = get_tree().get_nodes_in_group("MovementNodes").get(0)
 	camera = $Pivot/Camera3D
 	#stealMouse()
 
@@ -60,7 +60,7 @@ func _process(delta):
 		if selectedNode != 0:
 			selectedNode = selectedNode - 1
 	if Input.is_action_just_pressed("NodeGo"):
-		chosenNode = chosenNode.CN[selectedNode]
+		chosenNode = chosenNode.getConnection(selectedNode)
 		selectedNode = 0
 		position = chosenNode.get_position()
 		pass

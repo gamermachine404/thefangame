@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4w3fq02rfaaw"]
 
-[ext_resource type="Script" uid="uid://cn36iry4qf7tr" path="res://Assets/black_jack.gd" id="1_5lb70"]
-[ext_resource type="Script" uid="uid://ddb3h26ychpcx" path="res://Assets/blackjack_button.gd" id="1_mrrmw"]
+[ext_resource type="Script" uid="uid://cn36iry4qf7tr" path="res://Scripts/black_jack.gd" id="1_5lb70"]
+[ext_resource type="Script" uid="uid://ddb3h26ychpcx" path="res://Scripts/blackjack_button.gd" id="1_mrrmw"]
 [ext_resource type="Texture2D" uid="uid://bs0mhqfm7kmqm" path="res://Images/areusrs.jpg" id="2_w8qqw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5lb70"]

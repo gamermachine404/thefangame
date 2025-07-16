@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	
 
-func interacted(name):
+func minigame(name):
 	print(name)
 	var blackjack = load("res://Assets/BlackJack.tscn").instantiate()
 	self.add_child(blackjack)

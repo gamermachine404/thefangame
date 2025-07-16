@@ -1,4 +1,4 @@
-extends Control
+extends minigame
 
 var playernum
 var systemnum

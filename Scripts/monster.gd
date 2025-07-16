@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const position_node = preload("res://Assets/position_node.gd")
+const position_node = preload("res://Scripts/position_node.gd")
 
 @export var speed = 10
 @export var grav = 75

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds3mu4540h2l6"]
 
-[ext_resource type="Script" uid="uid://cexkqf5bhc2h5" path="res://Assets/camera.gd" id="1_lfopi"]
+[ext_resource type="Script" uid="uid://cexkqf5bhc2h5" path="res://Scripts/camera.gd" id="1_lfopi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1akh0"]
 

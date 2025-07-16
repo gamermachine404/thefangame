@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bodtvfstyu3ib"]
+[gd_scene load_steps=13 format=3 uid="uid://bodtvfstyu3ib"]
 
-[ext_resource type="Script" uid="uid://bgvjcj8deeo76" path="res://Assets/test_map.gd" id="1_2jwo7"]
+[ext_resource type="Script" uid="uid://bgvjcj8deeo76" path="res://Scripts/test_map.gd" id="1_2jwo7"]
 [ext_resource type="PackedScene" uid="uid://ds3mu4540h2l6" path="res://Assets/camera.tscn" id="2_gco83"]
 [ext_resource type="PackedScene" uid="uid://cjdk1j8ynygh4" path="res://Assets/unpaid_intern.tscn" id="2_q8sg7"]
 [ext_resource type="MeshLibrary" uid="uid://dbw1bq0pb8nca" path="res://Assets/beeblocks.tres" id="3_6ypav"]
 [ext_resource type="PackedScene" uid="uid://boap27go7kty7" path="res://Assets/position_node.tscn" id="4_o6wr5"]
-[ext_resource type="Script" uid="uid://2uykou5spvj2" path="res://Assets/Door.gd" id="4_usfiq"]
+[ext_resource type="Script" uid="uid://2uykou5spvj2" path="res://Scripts/Door.gd" id="5_8s3iw"]
 [ext_resource type="PackedScene" uid="uid://dsh2fkcjii2kk" path="res://Assets/Clock.tscn" id="7_gco83"]
 [ext_resource type="PackedScene" uid="uid://q2d44ppeseyv" path="res://Assets/PowerBox.tscn" id="8_y8f0h"]
 [ext_resource type="Texture2D" uid="uid://i8hotq1mf01j" path="res://Images/LongFingers.png" id="9_8s3iw"]
+[ext_resource type="Texture2D" uid="uid://ynqx07tfxahb" path="res://Images/Shortfingers.png" id="10_1gkq6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0a18e"]
 
@@ -19,12 +20,6 @@ script = ExtResource("1_2jwo7")
 
 [node name="UnpaidIntern" parent="." instance=ExtResource("2_q8sg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.923, -2.5)
-
-[node name="Cam1" parent="." groups=["Cams"] instance=ExtResource("2_gco83")]
-transform = Transform3D(-0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, 0.353553, -0.612372, 3, 6, -3)
-
-[node name="Cam2" parent="." groups=["Cams"] instance=ExtResource("2_gco83")]
-transform = Transform3D(-4.2222e-08, -0.258819, 0.965926, -1.13133e-08, 0.965926, 0.258819, -1, 0, -4.37114e-08, 23, 6, 52)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 15, -5)
@@ -40,35 +35,13 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="Door" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.79918, 0, 0, 0, 5.9284, 0, 0, 0, 0.797524, -2.5721, 2.73172, 37.4104)
 mesh = SubResource("BoxMesh_0a18e")
-script = ExtResource("4_usfiq")
+script = ExtResource("5_8s3iw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D"]
 transform = Transform3D(4.79, 0, 0, 0, 5.92, 0, 0, 0, 0.798, 0, 0, 0)
 shape = SubResource("BoxShape3D_ykplv")
-
-[node name="PositionNodes" type="Node3D" parent="."]
-
-[node name="1" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 6)
-Connected = Array[String](["3"])
-
-[node name="2" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 4, 53)
-Connected = Array[String](["3"])
-
-[node name="3" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 53)
-Connected = Array[String](["1", "2", "4", "5"])
-
-[node name="4" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, 53)
-Connected = Array[String](["3"])
-
-[node name="5" parent="PositionNodes" instance=ExtResource("4_o6wr5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 82)
-Connected = Array[String](["3"])
 
 [node name="RoomCheckers" type="Node3D" parent="."]
 
@@ -134,5 +107,36 @@ texture = ExtResource("9_8s3iw")
 
 [node name="InteractIcon" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(595, 305)
-texture = ExtResource("9_8s3iw")
+position = Vector2(608, 311)
+scale = Vector2(0.562, 0.562)
+texture = ExtResource("10_1gkq6")
+
+[node name="PositionNodes" type="Node" parent="."]
+
+[node name="1" parent="PositionNodes" groups=["MovementNodes"] instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 6)
+CN = Array[NodePath]([NodePath("../3")])
+
+[node name="2" parent="PositionNodes" groups=["MovementNodes"] instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 4, 53)
+CN = Array[NodePath]([NodePath("../3")])
+
+[node name="3" parent="PositionNodes" groups=["MovementNodes"] instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 53)
+CN = Array[NodePath]([NodePath("../1"), NodePath("../2"), NodePath("../4"), NodePath("../5")])
+
+[node name="4" parent="PositionNodes" groups=["MovementNodes"] instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, 53)
+CN = Array[NodePath]([NodePath("../3")])
+
+[node name="5" parent="PositionNodes" groups=["MovementNodes"] instance=ExtResource("4_o6wr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 82)
+CN = Array[NodePath]([NodePath("../3")])
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="Cam1" parent="Cameras" groups=["Cams"] instance=ExtResource("2_gco83")]
+transform = Transform3D(-0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, 0.353553, -0.612372, 3, 6, -3)
+
+[node name="Cam2" parent="Cameras" groups=["Cams"] instance=ExtResource("2_gco83")]
+transform = Transform3D(-4.2222e-08, -0.258819, 0.965926, -1.13133e-08, 0.965926, 0.258819, -1, 0, -4.37114e-08, 23, 6, 52)
